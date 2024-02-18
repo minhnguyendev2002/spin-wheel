@@ -10,7 +10,7 @@
 
 <body>
     <div class="wheel-mid" style="width: 400px;">
-        <div class="wheel-mid-container">
+        <div class="wheel-mid-container" onclick="startWheel()">
             <div class="fortune-wheel" id="fortune-wheel">
                 <div class="fortune-wheel-circle ">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360"
@@ -31,8 +31,10 @@
                         </g>
                     </svg>
                 </div>
-                <!-- <div class="fortune-wheel-countdown"><span
-                        class="fortune-wheel-countdown-time"> 20.21 </span></div> -->
+                <div class="fortune-wheel-countdown">
+                    <span class="fortune-wheel-countdown-time" id="fortune-wheel-countdown-time" style="display: none;">
+                        20.21 </span>
+                </div>
             </div>
         </div>
     </div>
@@ -582,7 +584,8 @@
         ];
         const container = document.getElementById('fortune-wheel-circle-dashes');
         const globalColor = document.getElementById('fortune-wheel');
-        const fillPointer =  document.getElementById('fill-pointer');
+        const fillPointer = document.getElementById('fill-pointer');
+        const countdownTime = document.getElementById('fortune-wheel-countdown-time')
 
         for (let index = 0; index < array.length; index++) {
             if (container) {
@@ -600,27 +603,71 @@
         let elapsedTime = 0;
         let interval;
 
-        function spinWheel(stopIndex) {
-            
-            interval = setInterval(() => {
-                if (elapsedTime >= 10000 && currentIndex === stopIndex) {
-                    clearInterval(interval);
-                    globalColor.setAttribute("style", `--countdown-color: ${array[stopIndex].color}`);
-                    fillPointer.style.opacity = 1
-                    container.style.transform = `rotate(${((360 / array.length) * stopIndex)-2}deg)`;
-                    // container.classList.remove("sping-pro")
+        function formatTime(milliseconds) {
+            const seconds = Math.floor(milliseconds / 1000);
+            const millisecondsRemain = milliseconds % 1000;
+            const formattedMilliseconds = Math.floor(millisecondsRemain / 10);
+
+            const secondsDisplay = seconds < 10 ? '0' + seconds : seconds;
+            const millisecondsDisplay = formattedMilliseconds < 10 ? '0' + formattedMilliseconds : formattedMilliseconds;
+
+            return `${secondsDisplay}:${millisecondsDisplay}`;
+        }
+
+        let countdownInterval;
+        let remainingTime = 20000;
+
+        let isScroll = true;
+
+        function startCountdown() {
+            countdownInterval = setInterval(() => {
+                remainingTime -= 10;
+                if (remainingTime <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownTime.style.display = 'none'
+                    isScroll = true
                     return;
                 }
-                const currentItem = array[currentIndex];
-                globalColor.setAttribute("style", `--countdown-color: ${array[currentIndex].color}`);
-                container.style.transform = `rotate(${((360 / array.length) * currentIndex)-2}deg)`;
+                countdownTime.style.display = 'block'
+                isScroll = false
+                countdownTime.innerText = formatTime(remainingTime)
+            }, 10);
+        }
+
+        function spinWheel(stopIndex) {
+            const _array = Array(6).fill().flatMap(() => array);
+            countdownTime.style.display = 'none'
+            interval = setInterval(() => {
+                console.log(123)
+                if (elapsedTime >= 10000 && currentIndex === stopIndex + _array.length - array.length) {
+                    clearInterval(interval);
+
+                    globalColor.setAttribute("style", `--countdown-color: ${_array[stopIndex + _array.length - array.length].color}`);
+                    container.style.transform = `rotate(${Math.floor(((360 * 2 / array.length) * (stopIndex + _array.length - array.length))) - 2}deg)`;
+
+                    fillPointer.style.opacity = 1;
+                    startCountdown();
+                    isScroll = true
+                    elapsedTime = 0
+                    currentIndex = 0
+                    return;
+                }
+                const currentItem = _array[currentIndex];
+
+                globalColor.setAttribute("style", `--countdown-color: ${_array[currentIndex].color}`);
+                container.style.transform = `rotate(${Math.floor(((360 * 2 / array.length) * currentIndex)) - 2}deg)`;
+
                 fillPointer.style.opacity = 0
                 elapsedTime += 100
                 currentIndex++;
             }, 100);
         }
 
-        spinWheel(20);
+        function startWheel() {
+            if (isScroll) {
+                spinWheel(0);
+            }
+        }
     </script>
 </body>
 
