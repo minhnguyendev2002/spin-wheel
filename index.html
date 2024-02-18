@@ -2,1711 +2,626 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pizza</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div style="position: relative;" class="container-custom">
-    <div id="pizza-container-custom">
-      <!-- <div class="mask"></div> -->
+    <div class="wheel-mid">
+        <div class="wheel-mid-container">
+            <div class="fortune-wheel" id="fortune-wheel">
+                <div class="fortune-wheel-circle ">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360"
+                        style="--dim: 360px; --r: 180px; --stroke-height: 6px;">
+                        <defs>
+                            <path d="M 180 345 L 190 315 L 180 320 L 170 315 L 180 340 M 180 355" id="arrow"></path>
+                        </defs>
+                        <g>
+                            <g class="fortune-wheel-circle-dashes" id="fortune-wheel-circle-dashes"></g>
+                        </g>
+                        <g>
+                            <g class="pointer fill-pointer" id="fill-pointer">
+                                <use href="#arrow"></use>
+                            </g>
+                            <path
+                                d="M 180 5 a 1 1 0 0 1 0 350 M 180 340 L 190 315 L 180 320 L 170 315 L 180 340 M 180 355 a 1 1 0 0 1 0 -350"
+                                class="fortune-wheel-circle-fake-mask"></path>
+                        </g>
+                    </svg>
+                </div>
+                <!-- <div class="fortune-wheel-countdown"><span
+                        class="fortune-wheel-countdown-time"> 20.21 </span></div> -->
+            </div>
+        </div>
     </div>
-    <!-- <div class="point"> -->
-      <!-- <div class="arrow"></div> -->
-      <!-- <svg id="svg-point" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" class="svg">
-        <defs>
-          <path width="2" d="M 180 345 L 190 315 L 180 320 L 170 315 L 180 345 M 180 355" id="arrow">
-          </path>
-        </defs>
-        <g>
-          <use href="#arrow"></use>
-        </g>
-      </svg> -->
-    <!-- </div> -->
-    <svg width="200" height="200">
-      <defs>
-          <path id="triangle" d="M 0 0 L 10 40 L 20 0 Z" />
-          <mask id="triangleMask" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
-            <rect width="100%" height="100%" fill="white" />
-              <use xlink:href="#triangle" fill="black" style="transform: scale(1) translate(45%, 70%);" />
-          </mask>
-      </defs>
-      <rect width="200" height="200" style="border-radius: 100%;" fill="red" mask="url(#triangleMask)" />
-  </svg>
-  </svg>
-  </div>
 
-  <script>
-    const array = [{
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#42acd1',
-      id: '',
-    }, {
-      color: '#ffc870',
-      id: '',
-    }, {
-      color: '#42acd1',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#c8354f',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#c8354f',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#c8354f',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#42acd1',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#42acd1',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#c8354f',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#c8354f',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#c8354f',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#42acd1',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#42acd1',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#c8354f',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#c8354f',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#c8354f',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#c8354f',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#c8354f',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#42acd1',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#42acd1',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#c8354f',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#c8354f',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#c8354f',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#42acd1',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#42acd1',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#c8354f',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#c8354f',
-      id: '',
-    }, {
-      color: '#545454',
-      id: '',
-    }, {
-      color: '#c8354f',
-      id: '',
-    }, {
-      color: '#ffc870',
-      id: '',
-    }, {
-      color: '#c8354f',
-      id: '',
-    }, {
-      color: '#c8354f',
-      id: '',
-    }];
-    const container = document.getElementById('pizza-container-custom');
-    const svgPoint = document.getElementById('svg-point');
+    <script>
+        const array = [
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 180,
+                "y2": 360,
+                "color": "var(--base-yellow)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-yellow); stroke-width: 15.708; --i: 0;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 200.89672454254145,
+                "y2": 358.78290439354976,
+                "color": "var(--base-blue)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-blue); stroke-width: 15.708; --i: 53;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 221.51085673363923,
+                "y2": 355.1480767043683,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 2;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 241.56362579862036,
+                "y2": 349.1446717414635,
+                "color": "var(--base-red)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-red); stroke-width: 15.708; --i: 51;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 260.7838524360832,
+                "y2": 340.8538752582142,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 4;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 278.91161605274505,
+                "y2": 330.38780605432856,
+                "color": "var(--base-red)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-red); stroke-width: 15.708; --i: 49;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 295.7017697435771,
+                "y2": 317.88799976141604,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 6;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 310.92725548314877,
+                "y2": 303.523494816372,
+                "color": "var(--base-red)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-red); stroke-width: 15.708; --i: 47;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 324.3821746959079,
+                "y2": 287.4885465065015,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 8;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 335.88457268119896,
+                "y2": 270,
+                "color": "var(--base-blue)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-blue); stroke-width: 15.708; --i: 45;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 345.2788992384493,
+                "y2": 251.29435788704828,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 10;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 352.438112216788,
+                "y2": 231.62458188799627,
+                "color": "var(--base-blue)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-blue); stroke-width: 15.708; --i: 43;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 357.26539554219744,
+                "y2": 211.25667198004749,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 12;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 359.6954684888283,
+                "y2": 190.4660692038857,
+                "color": "var(--base-red)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-red); stroke-width: 15.708; --i: 41;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 359.6954684888283,
+                "y2": 169.53393079611436,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 14;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 357.26539554219744,
+                "y2": 148.74332801995254,
+                "color": "var(--base-red)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-red); stroke-width: 15.708; --i: 39;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 352.438112216788,
+                "y2": 128.37541811200379,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 16;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 345.2788992384493,
+                "y2": 108.70564211295178,
+                "color": "var(--base-red)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-red); stroke-width: 15.708; --i: 37;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 335.88457268119896,
+                "y2": 90.00000000000004,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 18;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 324.38217469590785,
+                "y2": 72.51145349349845,
+                "color": "var(--base-blue)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-blue); stroke-width: 15.708; --i: 35;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 310.9272554831489,
+                "y2": 56.476505183628035,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 20;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 295.7017697435771,
+                "y2": 42.11200023858399,
+                "color": "var(--base-blue)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-blue); stroke-width: 15.708; --i: 33;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 278.9116160527451,
+                "y2": 29.612193945671464,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 22;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 260.7838524360832,
+                "y2": 19.14612474178577,
+                "color": "var(--base-red)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-red); stroke-width: 15.708; --i: 31;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 241.5636257986204,
+                "y2": 10.855328258536503,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 24;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 221.51085673363926,
+                "y2": 4.851923295631707,
+                "color": "var(--base-red)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-red); stroke-width: 15.708; --i: 29;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 200.89672454254153,
+                "y2": 1.2170956064502718,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 26;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 180.00000000000003,
+                "y2": 0,
+                "color": "var(--base-red)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-red); stroke-width: 15.708; --i: 27;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 159.10327545745858,
+                "y2": 1.2170956064502434,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 28;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 138.48914326636077,
+                "y2": 4.851923295631707,
+                "color": "var(--base-red)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-red); stroke-width: 15.708; --i: 25;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 118.43637420137964,
+                "y2": 10.855328258536474,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 30;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 99.21614756391689,
+                "y2": 19.14612474178574,
+                "color": "var(--base-red)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-red); stroke-width: 15.708; --i: 23;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 81.088383947255,
+                "y2": 29.61219394567138,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 32;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 64.29823025642294,
+                "y2": 42.11200023858396,
+                "color": "var(--base-blue)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-blue); stroke-width: 15.708; --i: 21;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 49.07274451685126,
+                "y2": 56.47650518362795,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 34;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 35.61782530409212,
+                "y2": 72.5114534934985,
+                "color": "var(--base-blue)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-blue); stroke-width: 15.708; --i: 19;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 24.115427318801096,
+                "y2": 89.99999999999991,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 36;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 14.721100761550673,
+                "y2": 108.70564211295176,
+                "color": "var(--base-red)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-red); stroke-width: 15.708; --i: 17;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 7.561887783211972,
+                "y2": 128.37541811200384,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 38;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 2.7346044578025612,
+                "y2": 148.74332801995254,
+                "color": "var(--base-red)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-red); stroke-width: 15.708; --i: 15;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 0.3045315111717173,
+                "y2": 169.5339307961141,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 40;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 0.3045315111717173,
+                "y2": 190.46606920388567,
+                "color": "var(--base-red)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-red); stroke-width: 15.708; --i: 13;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 2.734604457802533,
+                "y2": 211.2566719800474,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 42;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 7.561887783212001,
+                "y2": 231.62458188799627,
+                "color": "var(--base-blue)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-blue); stroke-width: 15.708; --i: 11;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 14.721100761550673,
+                "y2": 251.2943578870482,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 44;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 24.11542731880104,
+                "y2": 270,
+                "color": "var(--base-blue)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-blue); stroke-width: 15.708; --i: 9;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 35.61782530409218,
+                "y2": 287.4885465065016,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 46;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 49.07274451685126,
+                "y2": 303.5234948163721,
+                "color": "var(--base-red)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-red); stroke-width: 15.708; --i: 7;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 64.29823025642287,
+                "y2": 317.88799976141604,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 48;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 81.08838394725494,
+                "y2": 330.38780605432856,
+                "color": "var(--base-red)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-red); stroke-width: 15.708; --i: 5;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 99.21614756391676,
+                "y2": 340.8538752582142,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 50;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 118.43637420137956,
+                "y2": 349.1446717414636,
+                "color": "var(--base-red)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-red); stroke-width: 15.708; --i: 3;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 138.4891432663608,
+                "y2": 355.14807670436824,
+                "color": "var(--base-black)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-black); stroke-width: 15.708; --i: 52;",
+                "stroke_width": 15.708
+            },
+            {
+                "x1": 180,
+                "y1": 180,
+                "x2": 159.1032754574586,
+                "y2": 358.7829043935497,
+                "color": "var(--base-blue)",
+                "stroke-width": 15.708,
+                "style": "--color: var(--base-blue); stroke-width: 15.708; --i: 1;",
+                "stroke_width": 15.708
+            }
+        ];
+        const container = document.getElementById('fortune-wheel-circle-dashes');
+        const globalColor = document.getElementById('fortune-wheel');
+        const fillPointer =  document.getElementById('fill-pointer');
 
-    console.log(array.length)
-    for (var index = 0; index < array.length - 1; index++) {
-      if (container) {
-        const child = document.createElement("DIV")
-        child.classList.add("hold")
-        child.style.transform = `rotate(${index === 0 ? (360 / 56) * (index + 1) : index + 1 === array.length ? 360 : (360 / 56) * (index + 1)}deg)`
-        // child.style.zIndex = (index - 360) * -1
-        child.innerHTML = `
-              <div style="border-color: ${array[index].color}; background-color: ${array[index].color}; " class="Pizza"></div>
-            `;
-        container.appendChild(child)
-      }
-    }
-  </script>
+        for (let index = 0; index < array.length; index++) {
+            if (container) {
+                const child = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                child.setAttribute("x1", array[index].x1);
+                child.setAttribute("y1", array[index].y1);
+                child.setAttribute("x2", array[index].x2);
+                child.setAttribute("y2", array[index].y2);
+                child.setAttribute("style", array[index].style);
+                container.appendChild(child);
+            }
+        }
+
+        let currentIndex = 0;
+        let elapsedTime = 0;
+        let interval;
+
+        function spinWheel(stopIndex) {
+            
+            interval = setInterval(() => {
+                if (elapsedTime >= 10000 && currentIndex === stopIndex) {
+                    clearInterval(interval);
+                    globalColor.setAttribute("style", `--countdown-color: ${array[stopIndex].color}`);
+                    fillPointer.style.opacity = 1
+                    container.style.transform = `rotate(${((360 / array.length) * stopIndex)-2}deg)`;
+                    // container.classList.remove("sping-pro")
+                    return;
+                }
+                const currentItem = array[currentIndex];
+                globalColor.setAttribute("style", `--countdown-color: ${array[currentIndex].color}`);
+                container.style.transform = `rotate(${((360 / array.length) * currentIndex)-2}deg)`;
+                fillPointer.style.opacity = 0
+                elapsedTime += 100
+                currentIndex++;
+            }, 100);
+        }
+
+        spinWheel(20);
+    </script>
 </body>
 
 </html>
-
-
-
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["wheel"], {
-  "0222": function(t, e, i) {
-      "use strict";
-      i("bc6d")
-  },
-  "0a82": function(t, e, i) {},
-  "193f": function(t, e, i) {},
-  "2b51": function(t, e, i) {
-      "use strict";
-      i("7659")
-  },
-  "30e7": function(t, e, i) {},
-  "34f5": function(t, e, i) {},
-  "40b3": function(t, e, i) {},
-  "68a8": function(t, e, i) {
-      "use strict";
-      i.r(e);
-      var s = function() {
-          var t = this
-            , e = t.$createElement
-            , i = t._self._c || e;
-          return i("div", [i("div", {
-              class: ["wheel base-container", t.isSpinning && "is-spinning", t.showHighlight && "show-highlight", t.isLeftSidebarOpen && "is-left-sidebar-open", t.isRightSidebarOpen && "is-right-sidebar-open", t.isMultiview && "multiview"]
-          }, [i("div", {
-              staticClass: "wheel-previous-rolls"
-          }, [i("WheelInfoPreviousRolls", {
-              attrs: {
-                  choices: t.choices
-              }
-          })], 1), i("div", {
-              class: ["wheel-bet", t.isMultiview && "multiview"]
-          }, [i("InputGroup", {
-              staticClass: "wheel-bet-group"
-          }, [i("BalanceInput", {
-              attrs: {
-                  maxBetBux: t.maxBetBux,
-                  minBetBux: t.minBetBux,
-                  showOnlyBalances: !0,
-                  allowedBalances: t.balanceTypes({
-                      allowBonus: !0
-                  }),
-                  shouldShowSlider: !0,
-                  layout: "vertical-inline"
-              },
-              model: {
-                  value: t.wager,
-                  callback: function(e) {
-                      t.wager = e
-                  },
-                  expression: "wager"
-              }
-          }), i("AutobetSection", {
-              attrs: {
-                  name: "wheel",
-                  choices: t.choices,
-                  maxBetBux: t.maxBetBux,
-                  minBetBux: t.minBetBux
-              }
-          }), i("PreviousBets", {
-              attrs: {
-                  scope: "wheel",
-                  isOpen: t.showPreviousBets,
-                  previousBets: t.previousBets,
-                  buttonsDisabled: t.isSpinning || t.showHighlight,
-                  balanceType: t.balanceType
-              },
-              on: {
-                  toggleClick: t.toggleShowPreviousBets,
-                  betClick: t.handlePreviousBetClick
-              }
-          })], 1)], 1), i("div", {
-              staticClass: "wheel-mid"
-          }, [i("div", {
-              staticClass: "wheel-mid-container"
-          }, [i("EventSlot", {
-              attrs: {
-                  ns: "Wheel"
-              }
-          }), i("FortuneWheel", {
-              attrs: {
-                  choices: t.choices,
-                  rotate: t.rotate
-              },
-              scopedSlots: t._u([t.isSpinning || t.showHighlight ? null : {
-                  key: "countdown",
-                  fn: function() {
-                      return [t._v(" " + t._s(t.countdownDisplay) + " ")]
-                  },
-                  proxy: !0
-              }], null, !0)
-          }), t.offline ? i("div", {
-              staticClass: "wheel-offline"
-          }, [i("span", {
-              directives: [{
-                  name: "t",
-                  rawName: "v-t",
-                  value: "wheel.offline",
-                  expression: "'wheel.offline'"
-              }]
-          })]) : t._e()], 1)]), i("WheelInfo", {
-              attrs: {
-                  "is-multiview": t.isMultiview,
-                  choices: t.choices
-              }
-          }), i("div", {
-              class: ["wheel-betlists", t.isMultiview && "multiview"]
-          }, [i("div", {
-              class: ["wheel-betlists-bet-buttons", t.isMultiview && "multiview"]
-          }, t._l(t.choices, (function(e, s) {
-              return i("div", {
-                  key: e.color,
-                  class: ["wheel-betlists-bet-button", t.highlightedChoice == s && "is-highlighted", t.isMultiview && "multiview"],
-                  style: "--color: var(--base-" + e.color + ")"
-              }, [i("BetButton", {
-                  attrs: {
-                      multiplier: e.multiplier,
-                      color: e.color,
-                      "aria-disabled": t.isSpinning || t.showHighlight
-                  },
-                  on: {
-                      click: function(i) {
-                          return t.placeBet(e.choice)
-                      }
-                  }
-              })], 1)
-          }
-          )), 0), i("div", {
-              class: ["wheel-betlists-bet-lists", t.isMultiview && "multiview"]
-          }, [i("EventSlot", {
-              attrs: {
-                  ns: "Wheel",
-                  addContainerClass: !0
-              }
-          }), t._l(t.choices, (function(e, s) {
-              return i("div", {
-                  key: e.color,
-                  class: ["wheel-betlists-bet-list", t.highlightedChoice == s && "is-highlighted", t.isMultiview && "multiview"],
-                  style: "--color: var(--base-" + e.color + ")"
-              }, [i("BetStats", {
-                  attrs: {
-                      types: [t.highlightedChoice == s && "is-highlighted"],
-                      color: e.color,
-                      count: t.choiceReservationsCount[s],
-                      value: t.choiceReservationsValue[s],
-                      multiplier: t.highlightedChoice == s ? e.multiplier : 1,
-                      "bets-hidden": !!t.hiddenBetLists[e.color]
-                  },
-                  on: {
-                      toggleBets: t.toggleHide
-                  }
-              }), t.choiceMyReservations[s] && t.choiceMyReservations[s].length ? i("div", {
-                  class: ["wheel-betlist-my-bet-list", t.isMultiview && "multiview"]
-              }, [i("MyReservations", {
-                  attrs: {
-                      color: e.color,
-                      bets: t.choiceMyReservations[s],
-                      multiplier: t.highlightedChoice == s ? e.multiplier : 1
-                  }
-              })], 1) : t._e(), i("BetList", {
-                  attrs: {
-                      betsHidden: !!t.hiddenBetLists[e.color],
-                      color: e.color,
-                      bets: t.choiceReservations[s],
-                      cutoff: t.choiceReservationCutoff - t.choiceMyReservations[s].length,
-                      multiplier: t.highlightedChoice == s ? e.multiplier : 1
-                  }
-              })], 1)
-          }
-          ))], 2)])], 1), t.isMultiview ? t._e() : i("TopWins", {
-              attrs: {
-                  gameId: "wheel",
-                  gameType: "house-games",
-                  skipLuckyWins: !0
-              }
-          })], 1)
-      }
-        , o = []
-        , n = (i("14d9"),
-      i("13d5"),
-      function() {
-          var t = this
-            , e = t.$createElement
-            , i = t._self._c || e;
-          return i("div", {
-              staticClass: "wheel-info"
-          }, [i("WheelInfoLast100Rolls", {
-              attrs: {
-                  choices: t.choices
-              }
-          }), i("WheelInfoJackpotSection", {
-              attrs: {
-                  "is-multiview": t.isMultiview,
-                  choices: t.choices
-              }
-          }), i("EventSlot", {
-              attrs: {
-                  ns: "Wheel",
-                  addContainerClass: !0
-              }
-          })], 1)
-      }
-      )
-        , l = []
-        , a = i("ed2ee")
-        , r = i("2f62")
-        , c = function() {
-          var t = this
-            , e = t.$createElement
-            , i = t._self._c || e;
-          return i("InfoSection", {
-              staticClass: "past-section",
-              attrs: {
-                  title: "wheel.previousRolls.title"
-              },
-              scopedSlots: t._u([{
-                  key: "heading",
-                  fn: function() {
-                      return [i("IconButton", {
-                          attrs: {
-                              name: "wheel-spoil-toggle",
-                              icon: t.spoilResults ? "eye" : "eye-off",
-                              theme: t.spoilResults ? "fill red" : "line"
-                          },
-                          on: {
-                              click: t.toggleSpoil
-                          }
-                      }), i("BaseTooltip", {
-                          attrs: {
-                              to: "wheel-spoil-toggle",
-                              placement: "left",
-                              delay: [500]
-                          }
-                      }, [i("span", {
-                          directives: [{
-                              name: "t",
-                              rawName: "v-t",
-                              value: "wheel.toggleSpoil",
-                              expression: "'wheel.toggleSpoil'"
-                          }]
-                      })])]
-                  },
-                  proxy: !0
-              }])
-          }, [i("RoundHistory", {
-              attrs: {
-                  history: t.pastQueue,
-                  choices: t.choices,
-                  "spoil-results": t.spoilResults,
-                  "is-spinning": t.isSpinning
-              }
-          })], 1)
-      }
-        , h = []
-        , u = function() {
-          var t = this
-            , e = t.$createElement
-            , i = t._self._c || e;
-          return i("div", {
-              class: ["round-history", t.flagClasses]
-          }, [i("DragScroll", {
-              ref: "list",
-              staticClass: "round-history-list",
-              attrs: {
-                  role: "list",
-                  "scroll-x": ""
-              },
-              on: {
-                  dragscrollmove: t.handleScroll
-              }
-          }, [t.$slots.default ? t._t("default") : t._l(t.history, (function(e) {
-              return i("div", {
-                  key: "round-" + e.nonce,
-                  class: "round-history-list-item " + t.choices[e.choice].color,
-                  attrs: {
-                      to: "round-" + e.nonce,
-                      name: "round-" + e.nonce,
-                      role: "listitem"
-                  }
-              })
-          }
-          ))], 2), t.$slots.default ? t._e() : i("div", t._l(t.history, (function(e) {
-              return i("BaseTooltip", {
-                  key: "round-" + e.nonce,
-                  attrs: {
-                      to: "round-" + e.nonce,
-                      placement: "top",
-                      showOnMobile: !0,
-                      types: "is-" + t.choices[e.choice].color + " is-round-history",
-                      delay: 150
-                  }
-              }, [i("div", {
-                  staticClass: "tooltip-row"
-              }, [i("div", {
-                  staticClass: "tooltip-row-title"
-              }, [t._v(" " + t._s(t.$t("provablyFair.nonce")) + " ")]), i("div", {
-                  staticClass: "tooltip-row-value"
-              }, [t._v(" " + t._s(e.nonce) + " ")])]), i("div", {
-                  staticClass: "tooltip-row"
-              }, [i("div", {
-                  staticClass: "tooltip-row-title"
-              }, [t._v(" " + t._s(t.$t("provablyFair.roundId")) + " ")]), i("div", {
-                  staticClass: "tooltip-row-value"
-              }, [t._v(" " + t._s(e.roundId) + " ")])]), i("div", {
-                  staticClass: "tooltip-row"
-              }, [i("div", {
-                  staticClass: "tooltip-row-title"
-              }, [t._v(" " + t._s(t.$t("provablyFair.choice")) + " ")]), i("div", {
-                  staticClass: "tooltip-row-value"
-              }, [t._v(" " + t._s(t.$t("wheel." + t.choices[e.choice].color)) + " ")])]), i("div", {
-                  staticClass: "tooltip-row"
-              }, [i("div", {
-                  staticClass: "tooltip-row-title"
-              }, [t._v(" " + t._s(t.$t("provablyFair.random")) + " ")]), i("div", {
-                  staticClass: "tooltip-row-value"
-              }, [t._v(" " + t._s(e.random) + " ")])])])
-          }
-          )), 1), i("div", {
-              staticClass: "round-history-overlay"
-          }, [i("IconButton", {
-              attrs: {
-                  types: "is-medium",
-                  icon: "arrow-right-s"
-              },
-              on: {
-                  click: function(e) {
-                      return t.tryScrollToCurrent({
-                          force: !0
-                      })
-                  }
-              }
-          })], 1)], 1)
-      }
-        , d = []
-        , p = i("517b");
-      const v = 100;
-      var g = {
-          props: {
-              history: Array,
-              choices: Array,
-              spoilResults: Boolean,
-              isSpinning: Boolean
-          },
-          data() {
-              return {
-                  isScrolled: !1,
-                  resizeObserver: null
-              }
-          },
-          computed: {
-              flagClasses() {
-                  return {
-                      "has-spoilers": this.spoilResults,
-                      "is-scrolled": this.isScrolled,
-                      "is-spinning": this.isSpinning
-                  }
-              },
-              listEl() {
-                  return this.$refs.list.$el
-              }
-          },
-          watch: {
-              history() {
-                  this.$nextTick(()=>this.tryScrollToCurrent())
-              },
-              spoilResults() {
-                  this.$nextTick(()=>this.tryScrollToCurrent())
-              },
-              isSpinning() {
-                  this.$nextTick(()=>this.tryScrollToCurrent())
-              }
-          },
-          created() {
-              this.$nextTick(()=>this.tryScrollToCurrent({
-                  force: !0,
-                  limitRange: !0
-              }))
-          },
-          mounted() {
-              const t = ()=>{
-                  this.$nextTick(()=>this.tryScrollToCurrent({
-                      force: !0,
-                      limitRange: !0
-                  }))
-              }
-              ;
-              window.ResizeObserver ? (this.resizeObserver = new ResizeObserver(t),
-              this.resizeObserver.observe(this.$el)) : console.warn("Not observing RoundHistory: ResizeObserver is not supported")
-          },
-          destroyed() {
-              var t;
-              null === (t = this.resizeObserver) || void 0 === t || t.disconnect()
-          },
-          methods: {
-              handleScroll: Object(p["a"])((function() {
-                  const t = this.listEl.scrollWidth - this.listEl.offsetWidth
-                    , e = t - this.listEl.scrollLeft;
-                  this.isScrolled = e > v
-              }
-              ), 100),
-              tryScrollToCurrent(t={
-                  force: !1,
-                  limitRange: !1
-              }) {
-                  if (!t.force && this.isScrolled)
-                      return;
-                  const e = this.listEl.scrollWidth - this.listEl.offsetWidth;
-                  let i = this.listEl.scrollLeft;
-                  t.limitRange && (i = e - v),
-                  this.$anime({
-                      targets: this.listEl,
-                      scrollLeft: [i, Math.ceil(e + .5)],
-                      duration: 300,
-                      easing: "easeOutCubic"
-                  }),
-                  this.isScrolled = !1
-              }
-          }
-      }
-        , f = g
-        , m = (i("f764"),
-      i("2877"))
-        , w = Object(m["a"])(f, u, d, !1, null, "93031b92", null)
-        , b = w.exports
-        , C = {
-          components: {
-              InfoSection: a["a"],
-              RoundHistory: b
-          },
-          props: {
-              choices: Array
-          },
-          data() {
-              return {}
-          },
-          computed: {
-              ...Object(r["e"])("wheel", ["pastQueue", "spoilResults", "isSpinning"])
-          },
-          methods: Object(r["b"])("wheel", ["toggleSpoil"])
-      }
-        , k = C
-        , y = (i("0222"),
-      Object(m["a"])(k, c, h, !1, null, "0460c0db", null))
-        , B = y.exports
-        , S = function() {
-          var t = this
-            , e = t.$createElement
-            , i = t._self._c || e;
-          return i("InfoSection", {
-              staticClass: "last-section",
-              attrs: {
-                  title: "wheel.last100"
-              },
-              scopedSlots: t._u([{
-                  key: "heading",
-                  fn: function() {
-                      return [i("router-link", {
-                          staticClass: "pf-link",
-                          attrs: {
-                              to: "/provably-fair/wheel"
-                          }
-                      }, [i("IconButton", {
-                          attrs: {
-                              name: "wheel-provably-fair",
-                              icon: "scales"
-                          }
-                      })], 1), i("BaseTooltip", {
-                          attrs: {
-                              to: "wheel-provably-fair",
-                              placement: "left",
-                              delay: [500]
-                          }
-                      }, [i("span", {
-                          directives: [{
-                              name: "t",
-                              rawName: "v-t",
-                              value: "wheel.provablyFair",
-                              expression: "'wheel.provablyFair'"
-                          }]
-                      })])]
-                  },
-                  proxy: !0
-              }])
-          }, [i("div", {
-              staticClass: "wheel-last-100"
-          }, [i("div", {
-              staticClass: "wheel-last-100-list"
-          }, [i("div", {
-              staticClass: "wheel-last-100-list-item-group"
-          }, [i("div", {
-              staticClass: "wheel-last-100-list-item wheel-last-100-list-item--black"
-          }, [t._v(" " + t._s(t.last100Black) + " ")]), i("div", {
-              staticClass: "wheel-last-100-list-item wheel-last-100-list-item--red"
-          }, [t._v(" " + t._s(t.last100Red) + " ")])]), i("div", {
-              staticClass: "wheel-last-100-list-item-group"
-          }, [i("div", {
-              staticClass: "wheel-last-100-list-item wheel-last-100-list-item--blue"
-          }, [t._v(" " + t._s(t.last100Blue) + " ")]), i("div", {
-              staticClass: "wheel-last-100-list-item wheel-last-100-list-item--yellow"
-          }, [t._v(" " + t._s(t.last100Yellow) + " ")])])])])])
-      }
-        , _ = []
-        , x = {
-          components: {
-              InfoSection: a["a"]
-          },
-          props: {
-              choices: Array
-          },
-          data() {
-              return {}
-          },
-          computed: {
-              ...Object(r["e"])("wheel", ["pastQueue", "spoilResults", "isSpinning"]),
-              last100Black() {
-                  var t;
-                  return null === (t = this.pastQueue) || void 0 === t || null === (t = t.slice(-100)) || void 0 === t || null === (t = t.filter(t=>0 === t.choice)) || void 0 === t ? void 0 : t.length
-              },
-              last100Red() {
-                  var t;
-                  return null === (t = this.pastQueue) || void 0 === t || null === (t = t.slice(-100)) || void 0 === t || null === (t = t.filter(t=>1 === t.choice)) || void 0 === t ? void 0 : t.length
-              },
-              last100Blue() {
-                  var t;
-                  return null === (t = this.pastQueue) || void 0 === t || null === (t = t.slice(-100)) || void 0 === t || null === (t = t.filter(t=>2 === t.choice)) || void 0 === t ? void 0 : t.length
-              },
-              last100Yellow() {
-                  var t;
-                  return null === (t = this.pastQueue) || void 0 === t || null === (t = t.slice(-100)) || void 0 === t || null === (t = t.filter(t=>3 === t.choice)) || void 0 === t ? void 0 : t.length
-              }
-          },
-          methods: Object(r["b"])("wheel", ["toggleSpoil"])
-      }
-        , R = x
-        , O = (i("a6e2"),
-      Object(m["a"])(R, S, _, !1, null, "65b658a4", null))
-        , j = O.exports
-        , M = function() {
-          var t = this
-            , e = t.$createElement
-            , i = t._self._c || e;
-          return i("div", {
-              staticClass: "wheel-jackpot-section"
-          }, [i("InfoSection", {
-              class: ["jackpot-section", t.isMultiview && "multiview"],
-              attrs: {
-                  title: "wheel.jackpot.title"
-              },
-              scopedSlots: t._u([{
-                  key: "heading",
-                  fn: function() {
-                      return [i("IconButton", {
-                          attrs: {
-                              icon: "question"
-                          },
-                          on: {
-                              click: function(e) {
-                                  t.isJackpotModalOpen = !0
-                              }
-                          }
-                      })]
-                  },
-                  proxy: !0
-              }])
-          }, [i("div", {
-              staticClass: "jackpot-section-list"
-          }, [i("div", {
-              staticClass: "jackpot-section-list-item-group"
-          }, t._l(t.jackpots, (function(e) {
-              return i("div", {
-                  key: e.choice,
-                  staticClass: "jackpot-section-list-item"
-              }, [i("JackpotCounter", {
-                  attrs: {
-                      value: e.value,
-                      color: t.choices[e.choice].color
-                  }
-              })], 1)
-          }
-          )), 0), i("transition", {
-              attrs: {
-                  name: "slide-vertically"
-              }
-          }, [t.showJackpotWinner ? i("div", {
-              staticClass: "jackpot-winners",
-              class: "is-" + t.jackpotWinnerColor
-          }, [i("div", {
-              staticClass: "jackpot-title"
-          }, [i("RemixIcon", {
-              attrs: {
-                  icon: "trophy"
-              }
-          }), i("div", {
-              directives: [{
-                  name: "t",
-                  rawName: "v-t.preserve",
-                  value: "wheel.jackpot.shortTitle",
-                  expression: "'wheel.jackpot.shortTitle'",
-                  modifiers: {
-                      preserve: !0
-                  }
-              }]
-          }), i("RemixIcon", {
-              attrs: {
-                  icon: "trophy"
-              }
-          })], 1), i("div", {
-              staticClass: "jackpot-description"
-          }, [i("span", [t._v(t._s(t.jackpotWinnerText))])])]) : t._e()])], 1)]), i("JackpotExplainerModal", {
-              attrs: {
-                  choices: t.choices,
-                  open: t.isJackpotModalOpen
-              },
-              on: {
-                  close: function(e) {
-                      t.isJackpotModalOpen = !1
-                  }
-              }
-          })], 1)
-      }
-        , T = []
-        , $ = function() {
-          var t = this
-            , e = t.$createElement
-            , i = t._self._c || e;
-          return i("BaseModal", t._g(t._b({
-              staticClass: "jackpot-explainer-modal"
-          }, "BaseModal", t.$attrs, !1), t.$listeners), [i("BaseCard", [i("BaseCardHero", {
-              attrs: {
-                  title: "wheel.jackpot.explainer.title",
-                  description: "wheel.jackpot.explainer.howItWorks"
-              }
-          }, [t.choices ? i("div", {
-              staticClass: "counters-container"
-          }, [i("div", {
-              staticClass: "counters"
-          }, t._l(t.jackpots, (function(e) {
-              return i("JackpotCounter", {
-                  key: e.choice,
-                  attrs: {
-                      value: e.value,
-                      color: t.choices[e.choice].color
-                  }
-              })
-          }
-          )), 1)]) : t._e()]), i("BaseCardContent", [i("MarkdownArticle", {
-              attrs: {
-                  path: "wheel.jackpot.explainer.article",
-                  tabindex: "0"
-              }
-          })], 1)], 1)], 1)
-      }
-        , I = []
-        , W = i("a8bb")
-        , L = {
-          components: {
-              JackpotCounter: W["a"]
-          },
-          props: {
-              choices: Array
-          },
-          computed: Object(r["e"])("wheel", ["jackpots"])
-      }
-        , D = L
-        , P = (i("ed60"),
-      Object(m["a"])(D, $, I, !1, null, "c03a43f0", null))
-        , A = P.exports
-        , E = {
-          components: {
-              InfoSection: a["a"],
-              JackpotExplainerModal: A,
-              JackpotCounter: W["a"]
-          },
-          props: {
-              choices: Array,
-              isMultiview: {
-                  type: Boolean,
-                  default: !1
-              }
-          },
-          data() {
-              return {
-                  isJackpotModalOpen: !1
-              }
-          },
-          computed: {
-              ...Object(r["e"])("wheel", ["isSpinning", "jackpots", "showJackpotWinner", "jackpotWinnerText", "jackpotWinnerColor"])
-          }
-      }
-        , H = E
-        , F = (i("9483"),
-      Object(m["a"])(H, M, T, !1, null, "f7ed22ca", null))
-        , G = F.exports
-        , J = {
-          components: {
-              InfoSection: a["a"],
-              WheelInfoPreviousRolls: B,
-              WheelInfoLast100Rolls: j,
-              WheelInfoJackpotSection: G
-          },
-          props: {
-              choices: Array,
-              isMultiview: {
-                  type: Boolean,
-                  default: !1
-              }
-          },
-          data() {
-              return {
-                  isJackpotModalOpen: !1
-              }
-          },
-          computed: {
-              ...Object(r["e"])("wheel", ["pastQueue", "spoilResults", "isSpinning", "jackpots", "showJackpotWinner", "jackpotWinnerText", "jackpotWinnerColor"])
-          }
-      }
-        , V = J
-        , N = (i("fb1c"),
-      Object(m["a"])(V, n, l, !1, null, "f93c577c", null))
-        , Q = N.exports
-        , z = i("3997")
-        , Y = i("f102")
-        , q = i("3c8c")
-        , U = i("fe31")
-        , X = i("39b5")
-        , K = i("b4f7")
-        , Z = i("4c7b")
-        , tt = i("6bc2")
-        , et = i("4c57")
-        , it = function() {
-          var t = this
-            , e = t.$createElement
-            , i = t._self._c || e;
-          return i("InputField", {
-              class: ["previous-bets", t.isOpen && "is-open"]
-          }, [i("InputLabel", {
-              staticClass: "previous-bets-label"
-          }, [i("PreviousBetsButton", {
-              attrs: {
-                  isOpen: t.isOpen,
-                  scope: t.scope
-              },
-              on: {
-                  toggleClick: function(e) {
-                      return t.$emit("toggleClick")
-                  }
-              }
-          })], 1), i("transition", {
-              attrs: {
-                  name: "previous-bets-group-collapse"
-              }
-          }, [t.isOpen ? i("div", {
-              staticClass: "previous-bets-group-collapse"
-          }, [i("PreviousBetsGroup", t._g(t._b({}, "PreviousBetsGroup", t.$props, !1), t.$listeners))], 1) : t._e()])], 1)
-      }
-        , st = []
-        , ot = i("a498")
-        , nt = function() {
-          var t = this
-            , e = t.$createElement
-            , i = t._self._c || e;
-          return i("BaseButton", {
-              staticClass: "previous-bets-toggle",
-              attrs: {
-                  types: "is-inline",
-                  "icon-right": t.isOpen ? "arrow-up-s" : "arrow-down-s"
-              },
-              on: {
-                  click: function(e) {
-                      return t.emitToggleClick()
-                  }
-              }
-          }, [i("span", {
-              directives: [{
-                  name: "t",
-                  rawName: "v-t",
-                  value: "other.repeatPreviousBets.title",
-                  expression: "'other.repeatPreviousBets.title'"
-              }]
-          })])
-      }
-        , lt = []
-        , at = {
-          name: "PreviousBetsButton",
-          props: {
-              isOpen: Boolean
-          },
-          methods: {
-              emitToggleClick() {
-                  return this.$emit("toggleClick")
-              }
-          }
-      }
-        , rt = at
-        , ct = (i("cc58"),
-      Object(m["a"])(rt, nt, lt, !1, null, "49962680", null))
-        , ht = ct.exports
-        , ut = {
-          name: "PreviousBets",
-          components: {
-              PreviousBetsGroup: ot["a"],
-              PreviousBetsButton: ht
-          },
-          props: {
-              isOpen: Boolean,
-              previousBets: Object,
-              scope: String,
-              buttonsDisabled: Boolean,
-              balanceType: String
-          }
-      }
-        , dt = ut
-        , pt = (i("2b51"),
-      Object(m["a"])(dt, it, st, !1, null, "8d41b8d8", null))
-        , vt = pt.exports
-        , gt = i("c276")
-        , ft = i("1826")
-        , mt = i("3c11");
-      class wt {
-          constructor(t, e) {
-              this.tick = 0,
-              this.tickDelta = 0,
-              this.lastTick = 0,
-              this.targetFPS = 1e3 / t,
-              this.callback = e,
-              this.frameId
-          }
-          setCallback(t) {
-              this.callback = t
-          }
-          setFps(t) {
-              this.targetFPS = 1e3 / t
-          }
-          start() {
-              this.animate()
-          }
-          stop() {
-              cancelAnimationFrame(this.frameId)
-          }
-          animate() {
-              this.frameId = requestAnimationFrame(this.animate.bind(this)),
-              this.callback && (this.tick = Date.now(),
-              this.tickDelta = this.tick - this.lastTick,
-              this.tickDelta > this.targetFPS && (this.callback(this.stop.bind(this)),
-              this.lastTick = this.tick - this.tickDelta % this.targetFPS))
-          }
-      }
-      var bt = wt;
-      const Ct = [{
-          color: "black",
-          multiplier: 2,
-          divisions: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52],
-          choice: 0,
-          maxReservationValue: 75e6
-      }, {
-          color: "red",
-          multiplier: 3,
-          divisions: [3, 5, 7, 13, 15, 17, 23, 25, 27, 29, 31, 37, 39, 41, 47, 49, 51],
-          choice: 1,
-          maxReservationValue: 5e7
-      }, {
-          color: "blue",
-          multiplier: 5,
-          divisions: [1, 9, 11, 19, 21, 33, 35, 43, 45, 53],
-          choice: 2,
-          maxReservationValue: 3e7
-      }, {
-          color: "yellow",
-          multiplier: 50,
-          divisions: [0],
-          choice: 3,
-          maxReservationValue: 3e6
-      }]
-        , kt = new bt;
-      var yt = {
-          name: "Wheel",
-          components: {
-              MockBets: ft["a"],
-              WheelInfo: Q,
-              FortuneWheel: U["a"],
-              BalanceInput: q["a"],
-              BetList: X["a"],
-              BetButton: K["a"],
-              BetStats: Z["a"],
-              MyReservations: tt["a"],
-              AutobetSection: et["a"],
-              PreviousBets: vt,
-              WheelInfoPreviousRolls: B,
-              WheelInfoLast100Rolls: j,
-              WheelInfoJackpotSection: G,
-              TopWins: mt["a"]
-          },
-          data() {
-              return {
-                  currentCountdown: 0,
-                  rotate: null,
-                  showHighlight: !1,
-                  wager: {},
-                  isDevEnv: !1
-              }
-          },
-          static() {
-              return {
-                  choices: Ct,
-                  lastCountdownLoopRunAt: null,
-                  animationFrameId: null
-              }
-          },
-          beforeMount() {
-              const t = this.choiceMaxReservationValue;
-              for (let i in Ct) {
-                  const e = Ct[i];
-                  t[e.choice] && (Ct[i].maxReservationValue = t[e.choice])
-              }
-              try {
-                  this.$store.dispatch("wheel/hydrateHiddenBetLists", {}, {
-                      root: !0
-                  })
-              } catch (e) {
-                  console.log(e),
-                  this.$store.commit("wheel/setHiddenBetLists", {})
-              }
-              kt.setCallback(this.countdownUpdate),
-              kt.setFps(this.fps.high)
-          },
-          computed: {
-              ...Object(r["e"])("chat", {
-                  isRightSidebarOpen: "isOpen"
-              }),
-              ...Object(r["e"])("site", {
-                  fps: "fps",
-                  isLeftSidebarOpen: "isSidebarOpen",
-                  isMultiview: "isMultiview"
-              }),
-              ...Object(r["e"])("wheel", {
-                  round: "round",
-                  winner: "winner",
-                  roundTime: "roundTime",
-                  animationTime: "animationTime",
-                  disableBetsEarlyTime: "disableBetsEarlyTime",
-                  winnerHighlightTime: "winnerHighlightTime",
-                  showPreviousBets: "showPreviousBets",
-                  previousBets: "previousBets",
-                  choiceReservations: "choiceReservations",
-                  choiceMyReservations: "choiceMyReservations",
-                  choiceMaxReservationValue: "choiceMaxReservationValue",
-                  wheelOffline: "offline",
-                  choiceReservationsValue: "choiceReservationsValue",
-                  choiceReservationsCount: "choiceReservationsCount",
-                  hiddenBetLists: "hiddenBetLists",
-                  choiceReservationCutoff: "choiceReservationCutoff",
-                  _isSpinning: "isSpinning"
-              }),
-              ...Object(r["e"])("user", {
-                  balanceType: "balanceType",
-                  balances: "balances",
-                  maxBet: "maxBet",
-                  minBet: "minBet"
-              }),
-              ...Object(r["c"])("user", ["isLoggedIn"]),
-              maxBetBux() {
-                  var t, e;
-                  const i = null !== (t = this.maxBet) && void 0 !== t ? t : 0
-                    , s = null === (e = this.balances) || void 0 === e ? void 0 : e[this.balanceType];
-                  return i || s
-              },
-              minBetBux() {
-                  var t;
-                  const e = null !== (t = this.minBet) && void 0 !== t ? t : 0;
-                  return e
-              },
-              countdownDisplay() {
-                  if (isNaN(this.currentCountdown))
-                      return "...";
-                  let t = Object(gt["a"])(this.currentCountdown / 1e3, 2);
-                  return t.length < 5 && (t = "0" + t),
-                  t
-              },
-              isSpinning: {
-                  set(t) {
-                      this.setSpinning(t)
-                  },
-                  get() {
-                      return this._isSpinning
-                  }
-              },
-              highlightedChoice() {
-                  return this.showHighlight && this.winner ? this.winner.choice : -1
-              },
-              offline() {
-                  return this.wheelOffline
-              }
-          },
-          watch: {
-              round: {
-                  immediate: !0,
-                  handler(t) {
-                      if (!t)
-                          return;
-                      const e = this.roundTime - this.animationTime - this.disableBetsEarlyTime
-                        , i = new Date(t.startDate).getTime() + e - Object(gt["i"])();
-                      this.startCountdown(i)
-                  }
-              },
-              winner: {
-                  immediate: !0,
-                  handler(t, e) {
-                      t && (t.endDate ? this.endRound(t) : this.spinWheel(t, {
-                          duration: 0
-                      }))
-                  }
-              }
-          },
-          methods: {
-              ...Object(r["d"])("wheel", ["setSpinning", "setHiddenBetLists"]),
-              ...Object(r["b"])("wheel", {
-                  clearRoundReservations: "clearRoundReservations",
-                  toggleShowPreviousBets: "toggleShowPreviousBets",
-                  _placeBet: "placeBet"
-              }),
-              ...Object(r["b"])("socket", ["joinPage", "leavePage"]),
-              toggleHide(t) {
-                  this.setHiddenBetLists({
-                      ...this.hiddenBetLists,
-                      [t]: !this.hiddenBetLists[t]
-                  })
-              },
-              placeBet(t, e, i) {
-                  if (!this.isLoggedIn)
-                      return this.$toast.error({
-                          message: this.$t("error.login_to_bet")
-                      });
-                  if (e = e || this.wager.amount,
-                  !e)
-                      return;
-                  const s = Ct[t];
-                  if ((null === s || void 0 === s ? void 0 : s.maxReservationValue) > 0 && e > s.maxReservationValue)
-                      return this.$toast.error({
-                          i18n: "error.max_reservation_value",
-                          args: {
-                              buxValue: s.maxReservationValue
-                          }
-                      });
-                  const o = [];
-                  if (Object(z["a"])(this.choiceMyReservations, (t,e)=>{
-                      t.forEach(t=>{
-                          o.push(parseInt(e))
-                      }
-                      )
-                  }
-                  ),
-                  o.push(t),
-                  3 === Object.values(this.choiceMyReservations).reduce((t,e)=>t + e.length, 0))
-                      return this.$toast.error({
-                          i18n: "error.max_reservation_count",
-                          args: {
-                              max: 3
-                          }
-                      });
-                  const n = o.find(t=>0 === t)
-                    , l = o.find(t=>1 === t)
-                    , a = o.find(t=>2 === t);
-                  if ("undefined" !== typeof n && "undefined" !== typeof l && "undefined" !== typeof a)
-                      return this.$toast.error({
-                          i18n: "error.cannot_bet_color"
-                      });
-                  this._placeBet({
-                      choice: t,
-                      worth: e,
-                      selectedBalance: i || this.wager.balanceType
-                  })
-              },
-              handlePreviousBetClick({choice: t, value: e}) {
-                  e && this.placeBet(t, e, this.balanceType)
-              },
-              countdownUpdate() {
-                  const t = Date.now();
-                  this.currentCountdown = Math.max(0, this.currentCountdown - (t - this.lastCountdownLoopRunAt)),
-                  this.lastCountdownLoopRunAt = t
-              },
-              countdownLoop() {
-                  this.countdownUpdate(),
-                  this.currentCountdown > 0 ? kt.start() : kt.stop()
-              },
-              startCountdown(t) {
-                  this.currentCountdown = t,
-                  this.lastCountdownLoopRunAt = Date.now(),
-                  this.countdownLoop()
-              },
-              async endRound(t) {
-                  var e;
-                  t.time = new Date(t.endDate).getTime() - Object(gt["i"])();
-                  const i = this.animationTime + (null !== (e = t.time) && void 0 !== e ? e : 0);
-                  this.spinWheel(t),
-                  this.isSpinning = !0,
-                  await Object(gt["r"])(i),
-                  this.isSpinning = !1,
-                  this.showHighlight = !0,
-                  await Object(gt["r"])(this.winnerHighlightTime),
-                  this.clearRoundReservations({
-                      roundId: t.roundId
-                  }),
-                  this.showHighlight = !1
-              },
-              spinWheel(t, {duration: e=this.animationTime, seek: i=(t.time < 0 ? Math.abs(t.time) : 0)}={}) {
-                  const s = t.random
-                    , o = this.getChoice({
-                      division: s
-                  })
-                    , n = this.getSpread({
-                      nonce: t.nonce
-                  });
-                  this.rotate = {
-                      division: s,
-                      spread: n,
-                      color: o.color,
-                      duration: e,
-                      seek: i
-                  }
-              },
-              getChoice({division: t}) {
-                  return this.choices.find(e=>e.divisions.includes(t))
-              },
-              getSpread({nonce: t}) {
-                  return Object(Y["a"])(Math.sin(t), .15, .85)
-              }
-          },
-          created() {
-              this.isMultiview && this.joinPage("wheel")
-          },
-          beforeDestroy() {
-              this.isMultiview && this.leavePage("wheel")
-          }
-      }
-        , Bt = yt
-        , St = (i("89e9"),
-      Object(m["a"])(Bt, s, o, !1, null, "662c495e", null));
-      e["default"] = St.exports
-  },
-  7206: function(t, e, i) {
-      "use strict";
-      i("8239")
-  },
-  7659: function(t, e, i) {},
-  8239: function(t, e, i) {},
-  "89e9": function(t, e, i) {
-      "use strict";
-      i("30e7")
-  },
-  9483: function(t, e, i) {
-      "use strict";
-      i("0a82")
-  },
-  "973c": function(t, e, i) {},
-  9820: function(t, e, i) {},
-  a0d8: function(t, e, i) {
-      "use strict";
-      i("34f5")
-  },
-  a6e2: function(t, e, i) {
-      "use strict";
-      i("9820")
-  },
-  bc6d: function(t, e, i) {},
-  cc58: function(t, e, i) {
-      "use strict";
-      i("40b3")
-  },
-  d33f: function(t, e, i) {},
-  ed60: function(t, e, i) {
-      "use strict";
-      i("973c")
-  },
-  f764: function(t, e, i) {
-      "use strict";
-      i("d33f")
-  },
-  fb1c: function(t, e, i) {
-      "use strict";
-      i("193f")
-  },
-  fe31: function(t, e, i) {
-      "use strict";
-      var s = function() {
-          var t = this
-            , e = t.$createElement
-            , i = t._self._c || e;
-          return i("div", {
-              staticClass: "fortune-wheel",
-              style: t.countdownColor && "--countdown-color: var(--base-" + t.countdownColor + ")"
-          }, [i("FortuneWheelCircle", t._b({
-              attrs: {
-                  choices: t.choices,
-                  rotate: t.rotate
-              }
-          }, "FortuneWheelCircle", t.$attrs, !1)), i("div", {
-              staticClass: "fortune-wheel-countdown"
-          }, [i("transition", {
-              attrs: {
-                  name: "fortune-wheel-countdown-status-text"
-              }
-          }, [t.$slots.default ? i("span", {
-              staticClass: "fortune-wheel-countdown-status-text"
-          }, [t._t("default")], 2) : t._e()]), i("transition", {
-              attrs: {
-                  name: "fortune-wheel-countdown-time"
-              }
-          }, [t.$slots.countdown ? i("span", {
-              staticClass: "fortune-wheel-countdown-time"
-          }, [t._t("countdown")], 2) : t._e()])], 1)], 1)
-      }
-        , o = []
-        , n = function() {
-          var t = this
-            , e = t.$createElement
-            , i = t._self._c || e;
-          return i("div", {
-              class: ["fortune-wheel-circle", t.isSpinning && "is-spinning", t.isGold && "is-gold"]
-          }, [i("EventSlot", {
-              attrs: {
-                  ns: "Wheel",
-                  addContainerClass: !0
-              }
-          }), i("svg", {
-              style: "--dim: " + t.dimensions + "px; --divisions: " + t.sortedColors.length + "; --r: " + t.r + "px; --stroke-height: " + t.strokeHeight + "px; --gold-animation-duration: " + t.goldAnimationSeconds + "s;",
-              attrs: {
-                  xmlns: "http://www.w3.org/2000/svg",
-                  viewBox: "0 0 " + t.dimensions + " " + t.dimensions
-              }
-          }, [i("defs", [i("path", {
-              attrs: {
-                  d: "M 180 345 L 190 315 L 180 320 L 170 315 L 180 340 M 180 355",
-                  id: "arrow"
-              }
-          }), t.isGold ? i("g", [i("linearGradient", {
-              staticClass: "gold-gradient",
-              attrs: {
-                  id: "goldGradient"
-              }
-          }, [i("stop", {
-              staticClass: "gold-gradient-transparent",
-              attrs: {
-                  offset: "0"
-              }
-          }), i("stop", {
-              staticClass: "gold-gradient-gold",
-              attrs: {
-                  offset: "0.5"
-              }
-          }), i("stop", {
-              staticClass: "gold-gradient-transparent",
-              attrs: {
-                  offset: "1"
-              }
-          })], 1), i("linearGradient", {
-              staticClass: "gold-gradient",
-              attrs: {
-                  id: "goldClipGradient"
-              }
-          }, [i("stop", {
-              attrs: {
-                  offset: "0",
-                  "stop-color": "black"
-              }
-          }), i("stop", {
-              attrs: {
-                  offset: "0.5",
-                  "stop-color": "white"
-              }
-          }), i("stop", {
-              attrs: {
-                  offset: "1",
-                  "stop-color": "black"
-              }
-          })], 1), i("mask", {
-              attrs: {
-                  id: "gold-clip"
-              }
-          }, [i("rect", {
-              staticClass: "gold-rect",
-              attrs: {
-                  fill: "url(#goldClipGradient)"
-              }
-          })])], 1) : t._e()]), i("g", [i("g", {
-              staticClass: "fortune-wheel-circle-dashes",
-              style: t.dashesStyle
-          }, t._l(t.sortedColors, (function(e, s) {
-              return i("line", {
-                  key: s,
-                  style: "--color: var(--base-" + e + "); stroke-width: " + t.strokeWidth + "; --division: " + s + "; --i: " + (s % 2 === 0 ? s : t.sortedColors.length - s) + ";",
-                  attrs: {
-                      x1: t.r,
-                      y1: t.r,
-                      x2: t.getX(s),
-                      y2: t.getY(s)
-                  }
-              })
-          }
-          )), 0)]), i("g", [i("g", {
-              staticClass: "pointer fill-pointer"
-          }, [i("use", {
-              attrs: {
-                  href: "#arrow"
-              }
-          })]), i("path", {
-              staticClass: "fortune-wheel-circle-fake-mask",
-              attrs: {
-                  d: "M 180 5 a 1 1 0 0 1 0 350 M 180 340 L 190 315 L 180 320 L 170 315 L 180 340 M 180 355 a 1 1 0 0 1 0 -350"
-              }
-          })]), i("g", {
-              directives: [{
-                  name: "show",
-                  rawName: "v-show",
-                  value: t.isGold,
-                  expression: "isGold"
-              }],
-              attrs: {
-                  mask: "url(#gold-clip)"
-              }
-          }, [i("text", {
-              staticClass: "gold-fade-text",
-              attrs: {
-                  x: "10%",
-                  y: "" + (t.dimensions / 2 + 72),
-                  width: "100%",
-                  textLength: "80%"
-              }
-          }, [t._v(" 500 ")])])])], 1)
-      }
-        , l = []
-        , a = {
-          props: {
-              choices: Array,
-              rotate: Object,
-              turns: {
-                  type: Number,
-                  default: 2
-              },
-              easing: {
-                  type: String,
-                  default: "easeOutCubic"
-              }
-          },
-          data() {
-              return {
-                  dimensions: 360,
-                  strokeHeight: 6,
-                  currentDegrees: 0,
-                  finalDegrees: 0,
-                  isSpinning: !1,
-                  animation: null,
-                  last: null,
-                  seek: 0,
-                  isGold: !1,
-                  goldAnimationSeconds: 2
-              }
-          },
-          computed: {
-              duration() {
-                  return this.rotate.duration || this.$attrs.duration
-              },
-              sortedColors() {
-                  const t = [];
-                  for (const e of this.choices)
-                      for (const i of e.divisions)
-                          t[i] = e.color;
-                  return t
-              },
-              numDivisions() {
-                  return this.sortedColors.length
-              },
-              strokeWidth() {
-                  const t = .75;
-                  return 2 * this.r * Math.PI / this.numDivisions * t
-              },
-              r() {
-                  return this.dimensions / 2
-              },
-              dashesStyle() {
-                  return `transform: rotate(${this.currentDegrees}deg)`
-              }
-          },
-          watch: {
-              rotate: {
-                  immediate: !0,
-                  handler(t) {
-                      var e;
-                      if (!t)
-                          return;
-                      this.isSpinning && this.endAnimation();
-                      let i = this.getDegrees(t.division);
-                      i += 360 * (null !== (e = t.turns) && void 0 !== e ? e : this.turns);
-                      const s = t.spread - .5;
-                      i += 100 * s * this.strokeWidth / 360,
-                      this.startAnimation(i, t.seek, t.division)
-                  }
-              }
-          },
-          beforeDestroy() {
-              this.endAnimation()
-          },
-          methods: {
-              getX(t) {
-                  const e = this.getDegrees(t);
-                  return this.r + Math.sin(e * Math.PI / 180) * this.r
-              },
-              getY(t) {
-                  const e = this.getDegrees(t);
-                  return this.r + Math.cos(e * Math.PI / 180) * this.r
-              },
-              getDegrees(t) {
-                  return t / this.numDivisions * 360
-              },
-              animationLoop() {
-                  if (!this.isSpinning)
-                      return;
-                  const t = Date.now() - this.last;
-                  this.seek += t,
-                  this.animation.seek(this.seek),
-                  this.last = Date.now(),
-                  this.seek < this.duration ? requestAnimationFrame(()=>this.animationLoop()) : (this.endAnimation(),
-                  "yellow" === this.sortedColors[this.division] && this.startGoldAnimation())
-              },
-              startAnimation(t, e, i) {
-                  this.isSpinning = !0,
-                  this.finalDegrees = t,
-                  this.division = i,
-                  this.animation = this.$anime({
-                      targets: this.$data,
-                      currentDegrees: this.finalDegrees,
-                      duration: this.duration,
-                      easing: this.easing,
-                      autoplay: !1
-                  }),
-                  this.last = Date.now(),
-                  this.seek = null !== e && void 0 !== e ? e : 0,
-                  this.animationLoop()
-              },
-              endAnimation() {
-                  var t;
-                  this.isSpinning = !1,
-                  null === (t = this.animation) || void 0 === t || t.remove(),
-                  this.finalDegrees = this.finalDegrees % 360 - 360,
-                  this.currentDegrees = this.finalDegrees
-              },
-              startGoldAnimation() {
-                  this.isGold || (this.isGold = !0,
-                  setTimeout(()=>this.isGold = !1, 1e3 * this.goldAnimationSeconds))
-              }
-          }
-      }
-        , r = a
-        , c = (i("7206"),
-      i("2877"))
-        , h = Object(c["a"])(r, n, l, !1, null, "2e31747f", null)
-        , u = h.exports
-        , d = {
-          components: {
-              FortuneWheelCircle: u
-          },
-          props: {
-              choices: Array,
-              rotate: Object
-          },
-          computed: {
-              countdownColor() {
-                  var t;
-                  return null === (t = this.rotate) || void 0 === t ? void 0 : t.color
-              }
-          }
-      }
-        , p = d
-        , v = (i("a0d8"),
-      Object(c["a"])(p, s, o, !1, null, "280ffa9c", null));
-      e["a"] = v.exports
-  }
-}]);
