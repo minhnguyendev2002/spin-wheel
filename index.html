@@ -615,11 +615,11 @@
         }
 
         let countdownInterval;
-        let remainingTime = 20000;
-
+        
         let isScroll = true;
-
+        
         function startCountdown() {
+            let remainingTime = 20000;
             countdownInterval = setInterval(() => {
                 remainingTime -= 10;
                 if (remainingTime <= 0) {
@@ -638,7 +638,6 @@
             const _array = Array(6).fill().flatMap(() => array);
             countdownTime.style.display = 'none'
             interval = setInterval(() => {
-                console.log(123)
                 if (elapsedTime >= 10000 && currentIndex === stopIndex + _array.length - array.length) {
                     clearInterval(interval);
 
