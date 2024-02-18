@@ -624,11 +624,11 @@
                 remainingTime -= 10;
                 if (remainingTime <= 0) {
                     clearInterval(countdownInterval);
-                    countdownTime.style.display = 'none'
+                    countdownTime.innerText = '00:00'
                     isScroll = true
                     return;
                 }
-                countdownTime.style.display = 'block'
+                
                 isScroll = false
                 countdownTime.innerText = formatTime(remainingTime)
             }, 10);
@@ -645,6 +645,7 @@
                     container.style.transform = `rotate(${Math.floor(((360 * 2 / array.length) * (stopIndex + _array.length - array.length))) - 2}deg)`;
 
                     fillPointer.style.opacity = 1;
+                    countdownTime.style.display = 'block'
                     startCountdown();
                     isScroll = true
                     elapsedTime = 0
