@@ -656,14 +656,13 @@
                 elapsedTime += 100;
 
                 currentIndex++;
-                console.log(currentIndex)
             }, 100);
-            container.style.transform = `rotate(${(360 * 3) + ((360 / array.length) * (stopIndex === 0 ? 1 : stopIndex))}deg)`;
+            container.style.transform = `rotate(${(360 * 3) + ((360 / array.length) * stopIndex)}deg)`;
         }
 
         function startWheel() {
             if (isScroll) {
-                spinWheel(1);
+                spinWheel(0);
             }
         }
     </script>
