@@ -100,12 +100,8 @@ body {
 }
 
 .fortune-wheel-circle-dashes {
-  transition: transform .2s ease-in-out;
+  transition: transform 10s ease-in-out;
 }
-
-/* .sping-pro {
-  animation: rotate360 5s ease-in-out infinite;
-} */
 
 
 :root {
